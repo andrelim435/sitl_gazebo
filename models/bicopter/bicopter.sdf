@@ -6,7 +6,7 @@
       <pose>0 0 0 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
-        <mass>1.5</mass>
+        <mass>0.7</mass>
         <inertia>
           <ixx>0.197563</ixx>
           <ixy>0</ixy>
@@ -118,7 +118,7 @@
 
 
     <link name='motor_0'>
-      <pose>0.35 -0.35 0.02 0 0 0</pose>
+      <pose>0 -0.35 0.02 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
         <mass>0.005</mass>
@@ -169,7 +169,7 @@
     </link>
 
     <link name='motor_0_intermediate'>
-      <pose>0.35 -0.35 0.02 0 0 0</pose>
+      <pose>0 -0.35 0.02 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
         <mass>0.001</mass>
@@ -222,7 +222,7 @@
 
 
     <link name='rotor_0'>
-      <pose>0.35 -0.35 0.07 0 0 0</pose>
+      <pose>0 -0.35 0.07 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
         <mass>0.005</mass>
@@ -290,7 +290,7 @@
 
 
     <link name='motor_1'>
-      <pose>-0.35 0.35 0.02 0 0 0</pose>
+      <pose>0 0.35 0.02 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
         <mass>0.005</mass>
@@ -341,7 +341,7 @@
     </link>
 
     <link name='motor_1_intermediate'>
-      <pose>0.35 -0.35 0.02 0 0 0</pose>
+      <pose>0 -0.35 0.02 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
         <mass>0.001</mass>
@@ -393,7 +393,7 @@
     </joint>
 
     <link name='rotor_1'>
-      <pose>-0.35 0.35 0.07 0 0 0</pose>
+      <pose>0 0.35 0.07 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
         <mass>0.005</mass>
