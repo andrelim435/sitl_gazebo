@@ -193,8 +193,8 @@
       <axis>
         <xyz>0 1 0</xyz>
         <limit>
-          <lower>-0.1</lower>
-          <upper>1.5</upper>
+          <lower>-0.75</lower>
+          <upper>0.75</upper>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -209,8 +209,8 @@
       <axis>
         <xyz>1 0 0</xyz>
         <limit>
-          <lower>-0.1</lower>
-          <upper>1.5</upper>
+          <lower>-0.35</lower>
+          <upper>0.35</upper>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -341,7 +341,7 @@
     </link>
 
     <link name='motor_1_intermediate'>
-      <pose>0 -0.35 0.02 0 0 0</pose>
+      <pose>0 0.35 0.02 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
         <mass>0.001</mass>
@@ -365,8 +365,8 @@
       <axis>
         <xyz>0 1 0</xyz>
         <limit>
-          <lower>-0.1</lower>
-          <upper>1.5</upper>
+          <lower>-0.75</lower>
+          <upper>0.75</upper>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -381,8 +381,8 @@
       <axis>
         <xyz>1 0 0</xyz>
         <limit>
-          <lower>-0.1</lower>
-          <upper>1.5</upper>
+          <lower>-0.35</lower>
+          <upper>0.35</upper>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
