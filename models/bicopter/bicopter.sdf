@@ -1,12 +1,13 @@
 <?xml version="1.0"?>
+
 <sdf version='1.5'>
   <model name='bicopter'>
     <pose>0 0 0.246 0 0 0</pose>
     <link name='base_link'>
       <pose>0 0 0 0 0 0</pose>
       <inertial>
-        <pose>0 0 -0.1 0 0 0</pose>
-        <mass>1.5</mass>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1.2</mass>
         <inertia>
           <ixx>0.197563</ixx>
           <ixy>0</ixy>
@@ -35,7 +36,7 @@
           </friction>-->
         </surface>
       </collision>
-      <collision name='landing_gear_collision'>
+      <!-- <collision name='landing_gear_collision'>
         <pose>0 0 -0.22 0 0 0</pose>
         <geometry>
           <box>
@@ -49,11 +50,8 @@
               <min_depth>0.01</min_depth>
             </ode>
           </contact>
-          <!--<friction>
-            <ode/>
-          </friction>-->
         </surface>
-      </collision>
+      </collision> -->
       <visual name='base_link_visual'>
         <pose>-0.01 0 -0.08 0 0 0</pose>
         <geometry>
@@ -68,7 +66,7 @@
           </script>
         </material>
       </visual>
-      <visual name='landing_gear_visual'>
+      <!-- <visual name='landing_gear_visual'>
         <pose>0 0 -0.22 0 0 0</pose>
         <geometry>
           <box>
@@ -81,7 +79,7 @@
             <uri>__default__</uri>
           </script>
         </material>
-      </visual>
+      </visual> -->
       <visual name='left_motor_column'>
         <pose>0 0.175 -0.16 0 0 0</pose>
         <geometry>
@@ -227,13 +225,23 @@
         <limit>
           <lower>-0.75</lower>
           <upper>0.75</upper>
+          <effort>10</effort>
+
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
-          <spring_stiffness>0</spring_stiffness>
+          <spring_stiffness>1</spring_stiffness>
+          <damping>0</damping>
         </dynamics>
         <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
+      <physics>
+        <ode>
+          <suspension>
+            <erp>0.05</erp>
+          </suspension>
+        </ode>
+      </physics>
     </joint>
     <joint name='motor_0_joint_b' type='revolute'>
       <child>motor_0</child>
@@ -241,20 +249,29 @@
       <axis>
         <xyz>1 0 0</xyz>
         <limit>
-          <lower>-0.35</lower>
-          <upper>0.35</upper>
+          <lower>-0.75</lower>
+          <upper>0.75</upper>
+          <effort>10</effort>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
-          <spring_stiffness>0</spring_stiffness>
+          <spring_stiffness>1</spring_stiffness>
+          <damping>0</damping>
         </dynamics>
         <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
+      <physics>
+        <ode>
+          <suspension>
+            <erp>0.05</erp>
+          </suspension>
+        </ode>
+      </physics>
     </joint>
 
 
     <link name='rotor_0'>
-      <pose>0 -0.35 -0.1 0 0 0</pose>
+      <pose>0 -0.35 -0.07 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
         <mass>0.005</mass>
@@ -399,13 +416,22 @@
         <limit>
           <lower>-0.75</lower>
           <upper>0.75</upper>
+          <effort>10</effort>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
-          <spring_stiffness>0</spring_stiffness>
+          <spring_stiffness>1</spring_stiffness>
+          <damping>0</damping>
         </dynamics>
         <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
+      <physics>
+        <ode>
+          <suspension>
+            <erp>0.05</erp>
+          </suspension>
+        </ode>
+      </physics>
     </joint>
     <joint name='motor_1_joint_b' type='revolute'>
       <child>motor_1</child>
@@ -413,19 +439,28 @@
       <axis>
         <xyz>1 0 0</xyz>
         <limit>
-          <lower>-0.35</lower>
-          <upper>0.35</upper>
+          <lower>-0.75</lower>
+          <upper>0.75</upper>
+          <effort>10</effort>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
-          <spring_stiffness>0</spring_stiffness>
+          <spring_stiffness>1</spring_stiffness>
+          <damping>0</damping>
         </dynamics>
         <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
+      <physics>
+        <ode>
+          <suspension>
+            <erp>0.05</erp>
+          </suspension>
+        </ode>
+      </physics>
     </joint>
 
     <link name='rotor_1'>
-      <pose>0 0.35 -0.1 0 0 0</pose>
+      <pose>0 0.35 -0.07 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
         <mass>0.005</mass>
@@ -495,7 +530,7 @@
       <robotNamespace></robotNamespace>
       <jointName>rotor_0_joint</jointName>
       <linkName>rotor_0</linkName>
-      <turningDirection>cw</turningDirection>
+      <turningDirection>ccw</turningDirection>
       <timeConstantUp>0.0125</timeConstantUp>
       <timeConstantDown>0.025</timeConstantDown>
       <maxRotVelocity>1500</maxRotVelocity>
@@ -512,7 +547,7 @@
       <robotNamespace></robotNamespace>
       <jointName>rotor_1_joint</jointName>
       <linkName>rotor_1</linkName>
-      <turningDirection>ccw</turningDirection>
+      <turningDirection>cw</turningDirection>
       <timeConstantUp>0.0125</timeConstantUp>
       <timeConstantDown>0.025</timeConstantDown>
       <maxRotVelocity>1500</maxRotVelocity>
@@ -598,7 +633,7 @@
           <zero_position_disarmed>0</zero_position_disarmed>
           <zero_position_armed>0</zero_position_armed>
           <joint_control_type>velocity</joint_control_type>
-          <joint_name>rotor_1_joint</joint_name>
+          <joint_name>rotor_0_joint</joint_name>
         </channel>
         <channel name="rotor1">
           <input_index>1</input_index>
@@ -607,7 +642,7 @@
           <zero_position_disarmed>0</zero_position_disarmed>
           <zero_position_armed>0</zero_position_armed>
           <joint_control_type>velocity</joint_control_type>
-          <joint_name>rotor_0_joint</joint_name>
+          <joint_name>rotor_1_joint</joint_name>
         </channel>
 
         <channel name="motor0_tilt_a">
@@ -619,7 +654,7 @@
           <joint_control_type>position</joint_control_type>
           <joint_name>motor_0_joint_a</joint_name>
            <joint_control_pid>
-            <p>10</p>
+            <p>20</p>
             <i>0</i>
             <d>0</d>
             <iMax>0.0</iMax>
@@ -637,7 +672,7 @@
           <joint_control_type>position</joint_control_type>
           <joint_name>motor_0_joint_b</joint_name>
            <joint_control_pid>
-            <p>10</p>
+            <p>20</p>
             <i>0</i>
             <d>0</d>
             <iMax>0.0</iMax>
@@ -655,7 +690,7 @@
           <joint_control_type>position</joint_control_type>
           <joint_name>motor_1_joint_a</joint_name>
            <joint_control_pid>
-            <p>10</p>
+            <p>20</p>
             <i>0</i>
             <d>0</d>
             <iMax>0.0</iMax>
@@ -673,7 +708,7 @@
           <joint_control_type>position</joint_control_type>
           <joint_name>motor_1_joint_b</joint_name>
            <joint_control_pid>
-            <p>10</p>
+            <p>20</p>
             <i>0</i>
             <d>0</d>
             <iMax>0.0</iMax>
