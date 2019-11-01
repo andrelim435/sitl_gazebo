@@ -4,7 +4,7 @@
   <model name='bicopter'>
     <pose>0 0 0 0 0 0</pose>
     <link name='test_stand_link'>
-      <pose>0 0 0.15 0 0 0</pose>
+      <pose>0 0 0.05 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
         <mass>100</mass>
@@ -18,18 +18,18 @@
         </inertia>
       </inertial>
       <collision name='test_stand_link_collision'>
-        <pose>0 0 0 0 0 0</pose>
+        <pose>0 0 0.05 0 0 0</pose>
         <geometry>
           <box>
-            <size>0.03 0.03 0.3</size>
+            <size>0.03 0.03 0.1</size>
           </box>
         </geometry>
       </collision>
       <visual name='test_stand_link_visual'>
-        <pose>0 0 0 0 0 0</pose>
+        <pose>0 0 0.05 0 0 0</pose>
         <geometry>
           <box>
-            <size>0.03 0.03 0.3</size>
+            <size>0.03 0.03 0.1</size>
           </box>
         </geometry>
         <material>
@@ -47,39 +47,10 @@
     <joint name='stand/bicopter' type='ball'>
       <child>base_link</child>
       <parent>test_stand_link</parent>
-      <pose>0 0 0.03 0 0 0</pose>
-      <!-- <axis>
-        <xyz>1 0 0</xyz>
-        <limit>
-          <lower>-0.75</lower>
-          <upper>0.75</upper>
-          <effort>0</effort>
-          <velocity>0</velocity>
-        </limit>
-        <dynamics>
-          <spring_reference>0</spring_reference>
-          <spring_stiffness>0</spring_stiffness>
-        </dynamics>
-        <use_parent_model_frame>1</use_parent_model_frame>
-      </axis>
-      <axis2>
-        <xyz>0 1 0</xyz>
-        <limit>
-          <lower>-0.75</lower>
-          <upper>0.75</upper>
-          <effort>0</effort>
-          <velocity>0</velocity>
-        </limit>
-        <dynamics>
-          <spring_reference>0</spring_reference>
-          <spring_stiffness>0</spring_stiffness>
-        </dynamics>
-        <use_parent_model_frame>1</use_parent_model_frame>
-      </axis2> -->
     </joint>
 
     <link name='base_link'>
-      <pose>0 0 0.33 0 0 0</pose>
+      <pose>0 0 0.03 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
         <mass>0.7</mass>
@@ -207,7 +178,7 @@
       <self_collide>0</self_collide>
     </link>
     <link name='bicopter/imu_link'>
-      <pose>0 0 0.36 0 0 0</pose>
+      <pose>0 0 0.06 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
         <mass>0.015</mass>
@@ -242,7 +213,7 @@
 
 
     <link name='motor_0'>
-      <pose>0 -0.125 0.36 0 0 0</pose>
+      <pose>0 -0.125 0.06 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
         <mass>0.005</mass>
@@ -293,7 +264,7 @@
     </link>
 
     <link name='motor_0_intermediate'>
-      <pose>0 -0.125 0.35 0 0 0</pose>
+      <pose>0 -0.125 0.05 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
         <mass>0.001</mass>
@@ -363,7 +334,7 @@
 
 
     <link name='rotor_0'>
-      <pose>0 -0.125 0.38 0 0 0</pose>
+      <pose>0 -0.125 0.08 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
         <mass>0.005</mass>
@@ -431,7 +402,7 @@
 
 
     <link name='motor_1'>
-      <pose>0 0.125 0.36 0 0 0</pose>
+      <pose>0 0.125 0.06 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
         <mass>0.005</mass>
@@ -482,7 +453,7 @@
     </link>
 
     <link name='motor_1_intermediate'>
-      <pose>0 0.125 0.35 0 0 0</pose>
+      <pose>0 0.125 0.05 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
         <mass>0.001</mass>
@@ -550,7 +521,7 @@
     </joint>
 
     <link name='rotor_1'>
-      <pose>0 0.125 0.38 0 0 0</pose>
+      <pose>0 0.125 0.08 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
         <mass>0.005</mass>
