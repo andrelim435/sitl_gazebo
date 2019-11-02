@@ -76,7 +76,50 @@
         </dynamics>
         <use_parent_model_frame>1</use_parent_model_frame>
       </axis2>
+      <ode>
+        <limit>
+          <erp>1</erp>
+        </limit>
+      </ode>
     </joint>
+    <!-- <joint name='stand/bicopter2' type='revolute2'>
+      <child>base_link</child>
+      <parent>test_stand_link</parent>
+      <pose>0 0 0.03 0 0 0</pose>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1.5</lower>
+          <upper>1.5</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+      <axis2>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>-1.5</lower>
+          <upper>1.5</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis2>
+      <ode>
+        <limit>
+          <erp>1</erp>
+        </limit>
+      </ode>
+    </joint> -->
 
     <link name='base_link'>
       <pose>0 0 0.33 0 0 0</pose>
@@ -319,7 +362,6 @@
         <limit>
           <lower>-0.75</lower>
           <upper>0.75</upper>
-
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -330,9 +372,7 @@
       </axis>
       <physics>
         <ode>
-          <suspension>
-            <erp>0.05</erp>
-          </suspension>
+          <erp>1</erp>
         </ode>
       </physics>
     </joint>
@@ -354,9 +394,7 @@
       </axis>
       <physics>
         <ode>
-          <suspension>
-            <erp>0.05</erp>
-          </suspension>
+          <erp>1</erp>
         </ode>
       </physics>
     </joint>
@@ -427,6 +465,11 @@
         </dynamics>
         <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
+      <physics>
+        <ode>
+          <erp>1</erp>
+        </ode>
+      </physics>
     </joint>
 
 
@@ -518,9 +561,7 @@
       </axis>
       <physics>
         <ode>
-          <suspension>
-            <erp>0.05</erp>
-          </suspension>
+          <erp>1</erp>
         </ode>
       </physics>
     </joint>
@@ -542,9 +583,7 @@
       </axis>
       <physics>
         <ode>
-          <suspension>
-            <erp>0.05</erp>
-          </suspension>
+          <erp>1</erp>
         </ode>
       </physics>
     </joint>
@@ -614,6 +653,11 @@
         </dynamics>
         <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
+      <physics>
+        <ode>
+          <erp>1</erp>
+        </ode>
+      </physics>
     </joint>
 
     <plugin name='right_motor_model' filename='libgazebo_motor_model.so'>
@@ -748,7 +792,7 @@
           <joint_control_type>position</joint_control_type>
           <joint_name>motor_0_joint_a</joint_name>
            <joint_control_pid>
-            <p>20</p>
+            <p>30</p>
             <i>0</i>
             <d>0</d>
             <iMax>0.0</iMax>
@@ -766,7 +810,7 @@
           <joint_control_type>position</joint_control_type>
           <joint_name>motor_0_joint_b</joint_name>
            <joint_control_pid>
-            <p>20</p>
+            <p>30</p>
             <i>0</i>
             <d>0</d>
             <iMax>0.0</iMax>
@@ -784,7 +828,7 @@
           <joint_control_type>position</joint_control_type>
           <joint_name>motor_1_joint_a</joint_name>
            <joint_control_pid>
-            <p>20</p>
+            <p>30</p>
             <i>0</i>
             <d>0</d>
             <iMax>0.0</iMax>
@@ -802,7 +846,7 @@
           <joint_control_type>position</joint_control_type>
           <joint_name>motor_1_joint_b</joint_name>
            <joint_control_pid>
-            <p>20</p>
+            <p>30</p>
             <i>0</i>
             <d>0</d>
             <iMax>0.0</iMax>
