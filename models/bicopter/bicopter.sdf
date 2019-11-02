@@ -44,15 +44,15 @@
       <self_collide>0</self_collide>
     </link>
 
-    <joint name='stand/bicopter' type='ball'>
+    <joint name='stand/bicopter' type='revolute2'>
       <child>base_link</child>
       <parent>test_stand_link</parent>
       <pose>0 0 0.03 0 0 0</pose>
-      <!-- <axis>
+      <axis>
         <xyz>1 0 0</xyz>
         <limit>
-          <lower>-0.75</lower>
-          <upper>0.75</upper>
+          <lower>-1.5</lower>
+          <upper>1.5</upper>
           <effort>0</effort>
           <velocity>0</velocity>
         </limit>
@@ -65,8 +65,8 @@
       <axis2>
         <xyz>0 1 0</xyz>
         <limit>
-          <lower>-0.75</lower>
-          <upper>0.75</upper>
+          <lower>-1.5</lower>
+          <upper>1.5</upper>
           <effort>0</effort>
           <velocity>0</velocity>
         </limit>
@@ -75,7 +75,7 @@
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
         <use_parent_model_frame>1</use_parent_model_frame>
-      </axis2> -->
+      </axis2>
     </joint>
 
     <link name='base_link'>
@@ -622,7 +622,7 @@
       <linkName>rotor_0</linkName>
       <turningDirection>cw</turningDirection>
       <timeConstantUp>0.0125</timeConstantUp>
-      <timeConstantDown>0.025</timeConstantDown>
+      <timeConstantDown>0.0025</timeConstantDown>
       <maxRotVelocity>1500</maxRotVelocity>
       <motorConstant>5e-06</motorConstant>
       <momentConstant>0.06</momentConstant>
@@ -640,7 +640,7 @@
       <linkName>rotor_1</linkName>
       <turningDirection>ccw</turningDirection>
       <timeConstantUp>0.0125</timeConstantUp>
-      <timeConstantDown>0.025</timeConstantDown>
+      <timeConstantDown>0.0025</timeConstantDown>
       <maxRotVelocity>1500</maxRotVelocity>
       <motorConstant>5e-06</motorConstant>
       <momentConstant>0.06</momentConstant>
@@ -660,11 +660,13 @@
       <gyroscopeNoiseDensity>0.0003394</gyroscopeNoiseDensity>
       <gyroscopeRandomWalk>3.8785e-05</gyroscopeRandomWalk>
       <gyroscopeBiasCorrelationTime>1000.0</gyroscopeBiasCorrelationTime>
-      <gyroscopeTurnOnBiasSigma>0.0087</gyroscopeTurnOnBiasSigma>
+      <gyroscopeTurnOnBiasSigma>0</gyroscopeTurnOnBiasSigma>
+      <!-- <gyroscopeTurnOnBiasSigma>0.0087</gyroscopeTurnOnBiasSigma> -->
       <accelerometerNoiseDensity>0.004</accelerometerNoiseDensity>
       <accelerometerRandomWalk>0.006</accelerometerRandomWalk>
       <accelerometerBiasCorrelationTime>300.0</accelerometerBiasCorrelationTime>
-      <accelerometerTurnOnBiasSigma>0.196</accelerometerTurnOnBiasSigma>
+      <accelerometerTurnOnBiasSigma>0</accelerometerTurnOnBiasSigma>
+      <!-- <accelerometerTurnOnBiasSigma>0.196</accelerometerTurnOnBiasSigma> -->
     </plugin>
     <!--
     <plugin name='wind_plugin' filename='libgazebo_wind_plugin.so'>
