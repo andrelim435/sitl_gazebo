@@ -357,6 +357,7 @@
     <joint name='motor_0_joint_a' type='revolute'>
       <child>motor_0_intermediate</child>
       <parent>base_link</parent>
+      <pose>0 0 0.03 0 0 0</pose>
       <axis>
         <xyz>0 1 0</xyz>
         <limit>
@@ -379,6 +380,7 @@
     <joint name='motor_0_joint_b' type='revolute'>
       <child>motor_0</child>
       <parent>motor_0_intermediate</parent>
+      <pose>0 0 0.02 0 0 0</pose>
       <axis>
         <xyz>1 0 0</xyz>
         <limit>
@@ -546,6 +548,7 @@
     <joint name='motor_1_joint_a' type='revolute'>
       <child>motor_1_intermediate</child>
       <parent>base_link</parent>
+      <pose>0 0 0.03 0 0 0</pose>
       <axis>
         <xyz>0 1 0</xyz>
         <limit>
@@ -568,6 +571,7 @@
     <joint name='motor_1_joint_b' type='revolute'>
       <child>motor_1</child>
       <parent>motor_1_intermediate</parent>
+      <pose>0 0 0.02 0 0 0</pose>
       <axis>
         <xyz>1 0 0</xyz>
         <limit>
