@@ -361,8 +361,8 @@
       <axis>
         <xyz>0 1 0</xyz>
         <limit>
-          <lower>-1.6</lower>
-          <upper>1.6</upper>
+          <lower>-0.75</lower>
+          <upper>0.75</upper>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -384,8 +384,8 @@
       <axis>
         <xyz>1 0 0</xyz>
         <limit>
-          <lower>-1.6</lower>
-          <upper>1.6</upper>
+          <lower>-0.75</lower>
+          <upper>0.75</upper>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -552,8 +552,8 @@
       <axis>
         <xyz>0 1 0</xyz>
         <limit>
-          <lower>-1.6</lower>
-          <upper>1.6</upper>
+          <lower>-0.75</lower>
+          <upper>0.75</upper>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -575,8 +575,8 @@
       <axis>
         <xyz>1 0 0</xyz>
         <limit>
-          <lower>-1.6</lower>
-          <upper>1.6</upper>
+          <lower>-0.75</lower>
+          <upper>0.75</upper>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
