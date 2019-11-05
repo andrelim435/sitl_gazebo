@@ -44,7 +44,7 @@
       <self_collide>0</self_collide>
     </link>
 
-    <joint name='stand/bicopter' type='revolute2'>
+    <joint name='stand/bicopter' type='ball'>
       <child>base_link</child>
       <parent>test_stand_link</parent>
       <pose>0 0 0.03 0 0 0</pose>
@@ -288,7 +288,7 @@
       <pose>0 -0.125 0.36 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
-        <mass>0.005</mass>
+        <mass>0.030</mass>
         <inertia>
           <ixx>0.000166704</ixx>
           <ixy>0</ixy>
@@ -339,7 +339,7 @@
       <pose>0 -0.125 0.35 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
-        <mass>0.001</mass>
+        <mass>0.015</mass>
         <inertia>
           <ixx>0.000166704</ixx>
           <ixy>0</ixy>
@@ -357,7 +357,7 @@
     <joint name='motor_0_joint_a' type='revolute'>
       <child>motor_0_intermediate</child>
       <parent>base_link</parent>
-      <pose>0 0 0.03 0 0 0</pose>
+      <pose>0 0 0.01 0 0 0</pose>
       <axis>
         <xyz>0 1 0</xyz>
         <limit>
@@ -366,8 +366,8 @@
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
-          <spring_stiffness>0</spring_stiffness>
-          <damping>0</damping>
+          <spring_stiffness>10</spring_stiffness>
+          <damping>0.02</damping>
         </dynamics>
         <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
@@ -380,7 +380,7 @@
     <joint name='motor_0_joint_b' type='revolute'>
       <child>motor_0</child>
       <parent>motor_0_intermediate</parent>
-      <pose>0 0 0.02 0 0 0</pose>
+      <pose>0 0 0.0 0 0 0</pose>
       <axis>
         <xyz>1 0 0</xyz>
         <limit>
@@ -389,8 +389,8 @@
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
-          <spring_stiffness>0</spring_stiffness>
-          <damping>0</damping>
+          <spring_stiffness>10</spring_stiffness>
+          <damping>0.02</damping>
         </dynamics>
         <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
@@ -411,9 +411,9 @@
           <ixx>9.75e-07</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>0.000166704</iyy>
+          <iyy>1.143e-4</iyy>
           <iyz>0</iyz>
-          <izz>0.000167604</izz>
+          <izz>1.143e-4</izz>
         </inertia>
       </inertial>
       <collision name='rotor_0_collision'>
@@ -479,7 +479,7 @@
       <pose>0 0.125 0.36 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
-        <mass>0.005</mass>
+        <mass>0.030</mass>
         <inertia>
           <ixx>0.000166704</ixx>
           <ixy>0</ixy>
@@ -530,7 +530,7 @@
       <pose>0 0.125 0.35 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
-        <mass>0.001</mass>
+        <mass>0.015</mass>
         <inertia>
           <ixx>0.000166704</ixx>
           <ixy>0</ixy>
@@ -548,7 +548,7 @@
     <joint name='motor_1_joint_a' type='revolute'>
       <child>motor_1_intermediate</child>
       <parent>base_link</parent>
-      <pose>0 0 0.03 0 0 0</pose>
+      <pose>0 0 0.01 0 0 0</pose>
       <axis>
         <xyz>0 1 0</xyz>
         <limit>
@@ -557,8 +557,8 @@
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
-          <spring_stiffness>0</spring_stiffness>
-          <damping>0</damping>
+          <spring_stiffness>10</spring_stiffness>
+          <damping>0.02</damping>
         </dynamics>
         <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
@@ -571,7 +571,7 @@
     <joint name='motor_1_joint_b' type='revolute'>
       <child>motor_1</child>
       <parent>motor_1_intermediate</parent>
-      <pose>0 0 0.02 0 0 0</pose>
+      <pose>0 0 0.0 0 0 0</pose>
       <axis>
         <xyz>1 0 0</xyz>
         <limit>
@@ -580,8 +580,8 @@
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
-          <spring_stiffness>0</spring_stiffness>
-          <damping>0</damping>
+          <spring_stiffness>10</spring_stiffness>
+          <damping>0.02</damping>
         </dynamics>
         <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
@@ -601,9 +601,9 @@
           <ixx>9.75e-07</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>0.000166704</iyy>
+          <iyy>1.143e-4</iyy>
           <iyz>0</iyz>
-          <izz>0.000167604</izz>
+          <izz>1.143e-4</izz>
         </inertia>
       </inertial>
       <collision name='rotor_1_collision'>
@@ -705,12 +705,14 @@
       <robotNamespace></robotNamespace>
       <linkName>bicopter/imu_link</linkName>
       <imuTopic>/imu</imuTopic>
-      <gyroscopeNoiseDensity>0.0003394</gyroscopeNoiseDensity>
+      <gyroscopeNoiseDensity>0</gyroscopeNoiseDensity>
+      <!-- <gyroscopeNoiseDensity>0.0003394</gyroscopeNoiseDensity> -->
       <gyroscopeRandomWalk>3.8785e-05</gyroscopeRandomWalk>
       <gyroscopeBiasCorrelationTime>1000.0</gyroscopeBiasCorrelationTime>
       <gyroscopeTurnOnBiasSigma>0</gyroscopeTurnOnBiasSigma>
       <!-- <gyroscopeTurnOnBiasSigma>0.0087</gyroscopeTurnOnBiasSigma> -->
-      <accelerometerNoiseDensity>0.004</accelerometerNoiseDensity>
+      <accelerometerNoiseDensity>0</accelerometerNoiseDensity>
+      <!-- <accelerometerNoiseDensity>0.004</accelerometerNoiseDensity> -->
       <accelerometerRandomWalk>0.006</accelerometerRandomWalk>
       <accelerometerBiasCorrelationTime>300.0</accelerometerBiasCorrelationTime>
       <accelerometerTurnOnBiasSigma>0</accelerometerTurnOnBiasSigma>
@@ -796,7 +798,7 @@
           <joint_control_type>position</joint_control_type>
           <joint_name>motor_0_joint_a</joint_name>
            <joint_control_pid>
-            <p>30</p>
+            <p>40</p>
             <i>0</i>
             <d>0</d>
             <iMax>0.0</iMax>
@@ -814,7 +816,7 @@
           <joint_control_type>position</joint_control_type>
           <joint_name>motor_0_joint_b</joint_name>
            <joint_control_pid>
-            <p>30</p>
+            <p>40</p>
             <i>0</i>
             <d>0</d>
             <iMax>0.0</iMax>
@@ -832,7 +834,7 @@
           <joint_control_type>position</joint_control_type>
           <joint_name>motor_1_joint_a</joint_name>
            <joint_control_pid>
-            <p>30</p>
+            <p>40</p>
             <i>0</i>
             <d>0</d>
             <iMax>0.0</iMax>
@@ -850,7 +852,7 @@
           <joint_control_type>position</joint_control_type>
           <joint_name>motor_1_joint_b</joint_name>
            <joint_control_pid>
-            <p>30</p>
+            <p>40</p>
             <i>0</i>
             <d>0</d>
             <iMax>0.0</iMax>
