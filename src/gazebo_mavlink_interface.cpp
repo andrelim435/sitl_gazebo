@@ -1290,6 +1290,19 @@ void GazeboMavlinkInterface::handle_control(double _dt)
         double force = pids_[i].Update(err, _dt);
         joints_[i]->SetForce(0, force);
       }
+      else if (joint_control_type_[i] == "position_firstorder")
+      {
+
+#if GAZEBO_MAJOR_VERSION >= 9
+        double current = joints_[i]->Position(0);
+#else
+        double current = joints_[i]->GetAngle(0).Radian();
+#endif
+
+        double err = current - target;
+        double vel = pids_[i].Update(err, _dt);
+        joints_[i]->SetVelocity(0, vel);
+      }
       else if (joint_control_type_[i] == "position_gztopic")
       {
      #if GAZEBO_MAJOR_VERSION >= 7 && GAZEBO_MINOR_VERSION >= 4
