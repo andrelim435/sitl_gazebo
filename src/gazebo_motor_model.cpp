@@ -195,11 +195,15 @@ void GazeboMotorModel::UpdateForcesAndMoments() {
 
   // Getting the parent link, such that the resulting forces and torques can be applied to it.
   physics::Link_V parent_links = link_->GetParentJointsLinks();
+  physics::Link_V pparent_links = parent_links.back()->GetParentJointsLinks();
+  physics::Link_V ppparent_links = pparent_links.back()->GetParentJointsLinks();
+  // gzdbg << ppparent_links.back()->GetName() << std::endl;
+
   // The tansformation from the parent_link to the link_.
 #if GAZEBO_MAJOR_VERSION >= 9
-  ignition::math::Pose3d pose_difference = link_->WorldCoGPose() - parent_links.back()->WorldCoGPose();
+  ignition::math::Pose3d pose_difference = link_->WorldCoGPose() - ppparent_links.back()->WorldCoGPose();
 #else
-  ignition::math::Pose3d pose_difference = ignitionFromGazeboMath(link_->GetWorldCoGPose() - parent_links.back()->GetWorldCoGPose());
+  ignition::math::Pose3d pose_difference = ignitionFromGazeboMath(link_->GetWorldCoGPose() - ppparent_links.back()->GetWorldCoGPose());
 #endif
 
   // scale down force linearly with forward speed
@@ -219,7 +223,7 @@ void GazeboMotorModel::UpdateForcesAndMoments() {
   // Transforming the force into the parent frame to handle arbitrary rotor orientations.
   ignition::math::Vector3d force_rotor_frame = ignition::math::Vector3d(0, 0, force * scalar);
   ignition::math::Vector3d force_parent_frame = pose_difference.Rot().RotateVector(force_rotor_frame);
-  parent_links.back()->AddLinkForce(force_parent_frame, pose_difference.Pos());
+  ppparent_links.back()->AddLinkForce(force_parent_frame, pose_difference.Pos());
 
   // Forces from Philppe Martin's and Erwan Salaün's
   // 2010 IEEE Conference on Robotics and Automation paper
@@ -238,18 +242,18 @@ void GazeboMotorModel::UpdateForcesAndMoments() {
 
   // Transforming the force into the parent frame to handle arbitrary rotor orientations.
   ignition::math::Vector3d air_drag_parent_frame = pose_difference.Rot().RotateVector(air_drag);
-  parent_links.back()->AddLinkForce(air_drag_parent_frame, pose_difference.Pos());
+  ppparent_links.back()->AddLinkForce(air_drag_parent_frame, pose_difference.Pos());
 
   // Moments
   ignition::math::Vector3d drag_torque(0, 0, -turning_direction_ * force * moment_constant_);
   // Transforming the drag torque into the parent frame to handle arbitrary rotor orientations.
   ignition::math::Vector3d drag_torque_parent_frame = pose_difference.Rot().RotateVector(drag_torque);
-  parent_links.back()->AddRelativeTorque(drag_torque_parent_frame);
+  ppparent_links.back()->AddRelativeTorque(drag_torque_parent_frame);
 
   ignition::math::Vector3d rolling_moment;
   // - \omega * \mu_1 * V_A^{\perp}
   rolling_moment = -std::abs(real_motor_velocity) * rolling_moment_coefficient_ * body_velocity_perpendicular;
-  parent_links.back()->AddTorque(rolling_moment);
+  ppparent_links.back()->AddTorque(rolling_moment);
   // Apply the filter on the motor's velocity.
   double ref_motor_rot_vel;
   ref_motor_rot_vel = rotor_velocity_filter_->updateFilter(ref_motor_rot_vel_, sampling_time_);
